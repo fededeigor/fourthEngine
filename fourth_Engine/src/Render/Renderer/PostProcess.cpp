@@ -97,35 +97,36 @@ namespace fth::renderer
 	constexpr uint8_t BLOOM_FLAG_GAUSSIAN_HORIZONTAL = 1;  //Used gaussianBlur_CS.hlsl,
 	constexpr uint8_t BLOOM_FLAG_GAUSSIAN_COMPOSITE = 2;   //Used gaussianBlur_CS.hlsl,
 
-	void PostProcess::resolveBloom(
-		const ShaderResourceView& src, 
-		uint16_t width, 
-		uint16_t height, 
-		const UnorderedAccessView* targetUAVs, 
-		const ShaderResourceView* targetSRVs, 
-		const UnorderedAccessView* scrapUAVs, 
-		const ShaderResourceView* scrapSRVs, uint8_t numMips)
+
+
+	void PostProcess::resolveBloom_CoD_Siggraph(
+		const ShaderResourceView& src,
+		uint16_t width,
+		uint16_t height,
+		uint8_t numMips,
+		const UnorderedAccessView* targetUAVs,
+		const ShaderResourceView* targetSRVs)
 	{
 		//1st- Downsample src into MIP 0
-		//2nd- Gaussian MIP N, using MIP N-1 as SRV
-		//3nd- Mix MIP N, using MIP N+1 as SRV
-		
+//2nd- Gaussian MIP N, using MIP N-1 as SRV
+//3nd- Mix MIP N, using MIP N+1 as SRV
 
 
-		//{
-		//	m_bloomDownsample_CS.bind();
-		//	cbBloom* map = static_cast<cbBloom*>(m_postprocessUniform.Map());
 
-		//	cbBloom gpuCnfg(width, height, m_bloomConfig, MODE_DOWNSAMPLE);
-		//	memcpy(map, &gpuCnfg, sizeof(cbBloom));
-		//	m_postprocessUniform.Unmap();
+//{
+//	m_bloomDownsample_CS.bind();
+//	cbBloom* map = static_cast<cbBloom*>(m_postprocessUniform.Map());
 
-		//	m_postprocessUniform.BindCS(cb_DS_BLOOM_HDR_SLOT);
-		//	src.BindCS(TX_HDR_RESOLVE_SLOT);
-		//	targetUAVs[0].BindCS(RW_DS_BLOOM_HDR_SLOT);
+//	cbBloom gpuCnfg(width, height, m_bloomConfig, MODE_DOWNSAMPLE);
+//	memcpy(map, &gpuCnfg, sizeof(cbBloom));
+//	m_postprocessUniform.Unmap();
 
-		//	ComputeShader::dispatch((width + 7) / 8, (height + 7) / 8, 1);
-		//}
+//	m_postprocessUniform.BindCS(cb_DS_BLOOM_HDR_SLOT);
+//	src.BindCS(TX_HDR_RESOLVE_SLOT);
+//	targetUAVs[0].BindCS(RW_DS_BLOOM_HDR_SLOT);
+
+//	ComputeShader::dispatch((width + 7) / 8, (height + 7) / 8, 1);
+//}
 
 
 
@@ -205,18 +206,6 @@ namespace fth::renderer
 
 		ShaderResourceView::ClearCS(TX_HDR_RESOLVE_SLOT);
 		UnorderedAccessView::ClearCS(RW_DS_BLOOM_HDR_SLOT);
-	}
-
-
-	void PostProcess::resolveBloom_CoD_Siggraph(
-		const ShaderResourceView& src,
-		uint16_t width,
-		uint16_t height,
-		uint8_t numMips,
-		const UnorderedAccessView* targetUAVs,
-		const ShaderResourceView* targetSRVs)
-	{
-
 	}
 
 	void PostProcess::resolveBloom_downsampleGaussian_upsampleBilinear(
