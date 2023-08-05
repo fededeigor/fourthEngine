@@ -143,8 +143,8 @@ project "fourth_Engine"
 			symbols "on"
 			links
 			{
-				"%{wks.location}/%{prj.name}/vendor/assimp/lib/Debug/assimp-vc143-mtd",
-				"%{wks.location}/%{prj.name}/vendor/assimp/lib/Debug/zlibstaticd",
+				"%{wks.location}/%{prj.name}/vendor/assimp/lib/lib_Debug/assimp-vc143-mtd",
+				"%{wks.location}/%{prj.name}/vendor/assimp/lib/lib_Debug/zlibstaticd",
 				"%{wks.location}/%{prj.name}/vendor/DirectXTex/lib/bin_Debug/DirectXTex"
 
 
@@ -156,8 +156,8 @@ project "fourth_Engine"
 			symbols "on"
 			links
 			{
-				"%{wks.location}/%{prj.name}/vendor/assimp/lib/Release/assimp-vc143-mt",
-				"%{wks.location}/%{prj.name}/vendor/assimp/lib/Release/zlibstatic",
+				"%{wks.location}/%{prj.name}/vendor/assimp/lib/lib_Release/assimp-vc143-mt",
+				"%{wks.location}/%{prj.name}/vendor/assimp/lib/lib_Release/zlibstatic",
 				"%{wks.location}/%{prj.name}/vendor/DirectXTex/lib/bin_Release/DirectXTex"
 
 			}
@@ -168,8 +168,8 @@ project "fourth_Engine"
 			optimize "on"
 			links
 			{
-				"%{wks.location}/%{prj.name}/vendor/assimp/lib/Release/assimp-vc143-mt",
-				"%{wks.location}/%{prj.name}/vendor/assimp/lib/Release/zlibstatic",
+				"%{wks.location}/%{prj.name}/vendor/assimp/lib/lib_Release/assimp-vc143-mt",
+				"%{wks.location}/%{prj.name}/vendor/assimp/lib/lib_Release/zlibstatic",
 				"%{wks.location}/%{prj.name}/vendor/DirectXTex/lib/bin_Release/DirectXTex"
 
 			}
